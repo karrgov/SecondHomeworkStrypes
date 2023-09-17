@@ -46,7 +46,7 @@ class Stream
         return std::cin.get();
     }
 
-    char* readInput() //novo
+    virtual char* readInput() //novo
     {
         char ch;
         while (std::cin.get(ch)) 
@@ -228,7 +228,7 @@ class Filter
         */
        return 1;
     }
-    
+
     /*
     //Filter(Stream& object, char arr[]) //: stream(object)
     {
@@ -280,6 +280,36 @@ class Sink
     }
 };
 
+class EmptyStream : public Stream
+{
+    private:
+    public:
+    EmptyStream() : Stream(0) {}
+    char* readInput() override
+    {
+        return eof();
+    }
+
+};
+
+class ConstStream : public Stream
+{
+    private:
+    public:
+    ConstStream(const char* data) : Stream(strlen(data))
+    {
+        int size = strlen(data);
+        for(int i = 0; i < size; ++i)
+        {
+            *(this->getArray() + i) = data[i];
+        }
+    }
+};
+
+class RandomStream : public Stream
+{
+
+};
 
 int main()
 {
