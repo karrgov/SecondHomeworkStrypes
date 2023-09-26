@@ -59,19 +59,21 @@ class RandomStream : public Stream
     inline static int capacity;
 
     public:
-    RandomStream(int numChars) : Stream(numChars) {}
+    RandomStream(int numChars);
     RandomStream(const RandomStream& other);
     RandomStream& operator=(const RandomStream& other);
     ~RandomStream();
 
-    void addElement(const char value);
-    void expandArray();
-    void changeSymbols(const char* newSymbols);
+    static void addElement(const char value);
+    static void expandArray();
+    static void changeSymbols(const char* newSymbols);
+    static void setSymbols();
 };
 
 class FileStream : public Stream
 {
     public:
-    FileStream(const char* filename) : Stream() {}
+    FileStream(const char* fileName);
+    char* readFile(const char* fileName);
 };
 
