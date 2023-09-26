@@ -234,28 +234,6 @@ RandomStream& RandomStream::operator=(const RandomStream& other)
     }
 }
 
-FileStream::FileStream(const char* filename) : Stream(0)
-{
-    std::ifstream file(filename);
-
-    if (!file)
-    {
-        std::cerr << "Could not open the file you've chose: " << filename << std::endl;
-        return;
-    }
-    char ch;
-    while (file.get(ch))
-    {
-        if (this->sizeOfArray() == this->capacityOfArray())
-        {
-            expandArray();
-        }
-        this->incrementSize();
-        *(this->getArray() + this->sizeOfArray()) = ch;
-    }
-    file.close();
-}
-
 char* FileStream::readFile(const char* fileName) 
 {
     std::ifstream file(fileName);
