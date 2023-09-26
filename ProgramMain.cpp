@@ -38,13 +38,14 @@ int main()
     try
     {
         //test for Stream class
-        Stream stream;
-        std::cout << "Input text data and terminate by CTRL + D:\n";
-        char* input = stream.readInput();
+        //Stream stream;
+        //std::cout << "Input text data and terminate by Control + D:\n";
+        //char* input = stream.readInput();
 
         //test for Filter class
-        //Filter filter(stream, "kargov");
-        //std::cout << filter.searchWordInInput() << std::endl;
+        Stream stream("anasfnfkargov\n3adfssa\n2kargovdsfsandf");
+        Filter filter(stream, "kargov");
+        std::cout << filter.searchWordInInput() << std::endl;
         
         //test for Sink class
         //Sink sinkFilter(&filter);

@@ -3,7 +3,8 @@
 #include <cassert>
 #include <cstring>
 
-Filter::Filter(Stream& stream, const char* wordToBeFound) : stream(stream), wordToBeFound(wordToBeFound), dataFromStream(stream.readInput())
+Filter::Filter(Stream& stream, const char* wordToBeFound) : stream(stream), wordToBeFound(wordToBeFound), dataFromStream(stream.
+getArray())
 {
 
 }
