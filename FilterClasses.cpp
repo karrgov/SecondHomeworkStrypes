@@ -9,7 +9,7 @@ getArray())
 
 }
 
-Filter::Filter(Stream& stream) : stream(stream), dataFromStream(stream.readInput())
+Filter::Filter(Stream& stream) : stream(stream), dataFromStream(stream.getArray())
 {
 
 }
